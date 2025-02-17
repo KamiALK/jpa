@@ -1,5 +1,6 @@
 package com.kamilo.hibernate.tests;
 
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.kamilo.hibernate.modelo.Empleado;
@@ -33,6 +34,9 @@ public class TestEmpleados {
 
     List<Empleado> empleados = (List<Empleado>) manager.createQuery("from  Empleado").getResultList();
     System.out.println("En esta base de datos hay " + empleados.size() + " empleados");
+
+    // creamos un empleados
+    Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", new GregorianCalendar(1979, 6, 28).getTime());
 
   }
 
