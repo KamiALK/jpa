@@ -1,3 +1,6 @@
 https://www.youtube.com/watch?v=OnBxxSU0L4M&list=PLTd5ehIj0goPcnQs34i0F-Kgp5JHX8UUv&index=5&pp=iAQB
 4. crear entidades 
 5 accediendo al entity manager
+      hubo un error en la compilacion y la prueba  
+      mvn clean compile exec:java -Dexec.mainClass="com.kamilo.hibernate.tests.TestEmpleados"
+
