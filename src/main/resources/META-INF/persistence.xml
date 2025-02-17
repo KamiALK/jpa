@@ -6,6 +6,8 @@
 
   <persistence-unit name="aplicacion">
     <!-- representaciones de clases  -->
+    <!-- <class>com.jpa.h2.model.Persona</class> -->
+    <class>com.kamilo.hibernate.modelo.Empleado</class>
 
     <properties>
         <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
