@@ -37,7 +37,20 @@ public class TestEmpleados {
 
     // creamos un empleados
     Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", new GregorianCalendar(1979, 6, 28).getTime());
+    // creo la transaccion
+    manager.getTransaction().begin();
+    manager.persist(empleado);
+    manager.getTransaction().commit();
+
+    imprimirEmpleados();
 
   }
 
+  private static void imprimirEmpleados() {
+    List<Empleado> empleados = (List<Empleado>) manager.createQuery("from  Empleado").getResultList();
+    System.out.println("En esta base de datos hay " + empleados.size() + " empleados");
+    for (Empleado empleado : empleados) {
+      System.out.println(empleado.toString());
+    }
+  }
 }

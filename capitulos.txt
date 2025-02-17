@@ -5,4 +5,6 @@ https://www.youtube.com/watch?v=OnBxxSU0L4M&list=PLTd5ehIj0goPcnQs34i0F-Kgp5JHX8
       mvn clean compile
       mvn clean compile exec:java -Dexec.mainClass="com.kamilo.hibernate.tests.TestEmpleados"
 6 insertando datos con persist
+7 Java: JPA + Hibernate – 7. Managed Entities
+
 
