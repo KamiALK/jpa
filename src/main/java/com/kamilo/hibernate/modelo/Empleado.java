@@ -8,4 +8,8 @@ public class Empleado {
   private String nombre;
   private String apellido;
   private Date fechaNacimiento;
+
+  // primero creamos un constructor vacio
+  public Empleado() {
+  }
 }
