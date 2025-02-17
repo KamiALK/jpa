@@ -1,1 +1,3 @@
-4. crear entidades https://www.youtube.com/watch?v=TFzcyi86o-w&list=PLTd5ehIj0goPcnQs34i0F-Kgp5JHX8UUv&index=4&pp=iAQB
+https://www.youtube.com/watch?v=OnBxxSU0L4M&list=PLTd5ehIj0goPcnQs34i0F-Kgp5JHX8UUv&index=5&pp=iAQB
+4. crear entidades 
+5 accediendo al entity manager
