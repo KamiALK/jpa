@@ -51,4 +51,15 @@ public class Empleado {
   public void setFechaNacimiento(Date fechaNacimiento) {
     this.fechaNacimiento = fechaNacimiento;
   }
+
+  // esta funcion convierte el objeto en un string en lugar de ser del tipo objeto
+  @Override
+  public String toString() {
+    return "Empleado{" +
+        "codigo=" + codigo +
+        ", nombre='" + nombre + '\'' +
+        ", apellido='" + apellido + '\'' +
+        ", fechaNacimiento=" + fechaNacimiento +
+        '}';
+  }
 }
