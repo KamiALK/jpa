@@ -46,6 +46,12 @@ public class TestEmpleados {
     System.out.println("En esta base de datos hay " + empleados.size() + " empleados");
 
     insertInitial();
+    // obtenemos el empleado y volvemos manage el moviemento para poderlo modificar
+    manager.getTransaction().begin();
+    Empleado empleado = manager.find(Empleado.class, 1L);
+    empleado.setNombre("Kamilo Andres");
+    empleado.setApellido("Garcian");
+    manager.getTransaction().commit();
 
     // Imprimir todos los empleados en la base de datos después de la inserción
     imprimirEmpleados();
