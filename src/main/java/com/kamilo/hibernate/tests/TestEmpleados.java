@@ -1,3 +1,4 @@
+
 package com.kamilo.hibernate.tests;
 
 import java.util.GregorianCalendar;
@@ -8,22 +9,31 @@ import com.kamilo.hibernate.modelo.Empleado;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-// import jakarta.persistence.PersistenceUnit;
 
-/* vamos 
- manager.persist() para crear un nuevo registro
- manager.merge() para modificar un registro
- manager.remove() para eliminar un registro
- manager.find() para buscar un registro
- manager.createQuery() para hacer consultas
- manager.getTransaction().commit() para confirmar la transacción
- manager.getTransaction().begin() para iniciar una transacción
- manager.close() para cerrar la conexión
- */
 public class TestEmpleados {
 
   private static EntityManager manager;
   private static EntityManagerFactory emf;
+
+  public static void insertInitial() {
+
+    // Creamos un empleado
+    Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", new GregorianCalendar(1979, 6, 28).getTime());
+
+    // Iniciar transacción
+    try {
+      manager.getTransaction().begin();
+      manager.persist(empleado);
+      manager.getTransaction().commit();
+
+      // Imprimir el empleado ingresado
+      System.out.println("Empleado agregado: " + empleado.toString());
+
+    } catch (Exception e) {
+      manager.getTransaction().rollback();
+      e.printStackTrace();
+    }
+  }
 
   public static void main(String[] args) {
     /*
@@ -32,22 +42,18 @@ public class TestEmpleados {
     emf = Persistence.createEntityManagerFactory("persistencia");
     manager = emf.createEntityManager();
 
-    List<Empleado> empleados = (List<Empleado>) manager.createQuery("from  Empleado").getResultList();
+    List<Empleado> empleados = (List<Empleado>) manager.createQuery("from Empleado").getResultList();
     System.out.println("En esta base de datos hay " + empleados.size() + " empleados");
 
-    // creamos un empleados
-    Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", new GregorianCalendar(1979, 6, 28).getTime());
-    // creo la transaccion
-    manager.getTransaction().begin();
-    manager.persist(empleado);
-    manager.getTransaction().commit();
+    insertInitial();
 
+    // Imprimir todos los empleados en la base de datos después de la inserción
     imprimirEmpleados();
-
+    manager.close();
   }
 
   private static void imprimirEmpleados() {
-    List<Empleado> empleados = (List<Empleado>) manager.createQuery("from  Empleado").getResultList();
+    List<Empleado> empleados = (List<Empleado>) manager.createQuery("from Empleado").getResultList();
     System.out.println("En esta base de datos hay " + empleados.size() + " empleados");
     for (Empleado empleado : empleados) {
       System.out.println(empleado.toString());
