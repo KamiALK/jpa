@@ -55,7 +55,18 @@ public class TestEmpleados {
 
     // Imprimir todos los empleados en la base de datos después de la inserción
     imprimirEmpleados();
-    manager.close();
+    manager.close();// la informacion pasa a estar detached y pasa a no estar administrada por el
+                    // entity manager
+
+    // aqui estoy detached y haciendo cosas de usuario almacenando y cambiando
+    // quiero entender como usar merge
+    empleado.setNombre("karlitos");
+    empleado.setApellido("alca");
+    manager = emf.createEntityManager();
+    manager.getTransaction().begin();
+    Empleado mergeEmplado = manager.merge(empleado);
+    manager.getTransaction().commit();
+
   }
 
   private static void imprimirEmpleados() {
