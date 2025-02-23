@@ -65,6 +65,8 @@ public class TestEmpleados {
     manager = emf.createEntityManager();
     manager.getTransaction().begin();
     Empleado mergeEmplado = manager.merge(empleado);
+
+    imprimirEmpleados();
     manager.getTransaction().commit();
 
   }
