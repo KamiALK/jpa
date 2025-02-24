@@ -64,7 +64,11 @@ public class TestEmpleados {
     empleado.setApellido("alca");
     manager = emf.createEntityManager();
     manager.getTransaction().begin();
+    // aplicacion del metodo merger
     Empleado mergeEmplado = manager.merge(empleado);
+
+    // uso del remove
+    manager.remove(empleado);
 
     imprimirEmpleados();
     manager.getTransaction().commit();
