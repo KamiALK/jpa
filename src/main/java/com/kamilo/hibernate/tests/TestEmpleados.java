@@ -67,11 +67,12 @@ public class TestEmpleados {
     // aplicacion del metodo merger
     Empleado mergeEmplado = manager.merge(empleado);
 
-    // uso del remove
-    manager.remove(empleado);
-
     imprimirEmpleados();
-    manager.getTransaction().commit();
+
+    // uso del remove
+    // manager.remove(empleado);
+    // imprimirEmpleados();
+    // manager.getTransaction().commit();
 
   }
 
