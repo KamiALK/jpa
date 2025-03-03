@@ -1,7 +1,8 @@
 
 package com.kamilo.hibernate.tests;
 
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
+// import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.kamilo.hibernate.modelo.Empleado;
@@ -18,7 +19,7 @@ public class TestEmpleados {
   public static void insertInitial() {
 
     // Creamos un empleado
-    Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", new GregorianCalendar(1979, 6, 28).getTime());
+    Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", LocalDate.of(1979, 6, 28));
 
     // Iniciar transacción
     try {

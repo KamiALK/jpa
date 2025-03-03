@@ -1,6 +1,7 @@
 package com.kamilo.hibernate.modelo;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -42,13 +43,13 @@ public class Empleado implements Serializable {
   @Column(name = "APELLIDO")
   private String apellido;
   @Column(name = "FECHA_NACIMIENTO")
-  private Date fechaNacimiento;
+  private LocalDate fechaNacimiento;
 
   // primero creamos un constructor vacio
   public Empleado() {
   }
 
-  public Empleado(Long codigo, String nombre, String apellido, Date fechaNacimiento) {
+  public Empleado(Long codigo, String nombre, String apellido, LocalDate fechaNacimiento) {
     this.codigo = codigo;
     this.nombre = nombre;
     this.apellido = apellido;
@@ -79,11 +80,11 @@ public class Empleado implements Serializable {
     this.apellido = apellido;
   }
 
-  public Date getFechaNacimiento() {
+  public LocalDate getFechaNacimiento() {
     return fechaNacimiento;
   }
 
-  public void setFechaNacimiento(Date fechaNacimiento) {
+  public void setFechaNacimiento(LocalDate fechaNacimiento) {
     this.fechaNacimiento = fechaNacimiento;
   }
 
