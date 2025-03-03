@@ -10,3 +10,5 @@ https://www.youtube.com/watch?v=OnBxxSU0L4M&list=PLTd5ehIj0goPcnQs34i0F-Kgp5JHX8
 9 agregar los tipos java 8
 10. Introducción a relaciones
     se hace explicacion de las relaciones lazy y eager
+
+11 .Realaciiones One to One
