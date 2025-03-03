@@ -68,6 +68,7 @@ public class TestEmpleados {
     Empleado mergeEmplado = manager.merge(empleado);
 
     imprimirEmpleados();
+    // prueba de comentario borrar esta linea
 
     // uso del remove
     // manager.remove(empleado);
