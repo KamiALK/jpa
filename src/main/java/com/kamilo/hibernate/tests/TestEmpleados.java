@@ -21,6 +21,7 @@ public class TestEmpleados {
 
     // Creamos un empleado
     Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", LocalDate.of(1979, 6, 28));
+    // la direccion se crea en el empleado, despues del empleado
     empleado.setDirection(new Direction(1L, "calle 1", "Bogota", "Colombia"));
 
     // Iniciar transacción
