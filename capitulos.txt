@@ -7,4 +7,4 @@ https://www.youtube.com/watch?v=OnBxxSU0L4M&list=PLTd5ehIj0goPcnQs34i0F-Kgp5JHX8
 6 insertando datos con persist
 7 Java: JPA + Hibernate – 7. Managed Entities
 8 merge y remove
-
+9 agregar los tipos java 8
