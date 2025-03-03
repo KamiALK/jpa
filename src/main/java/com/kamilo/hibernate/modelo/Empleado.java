@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /*
@@ -45,11 +48,15 @@ public class Empleado implements Serializable {
   @Column(name = "FECHA_NACIMIENTO")
   private LocalDate fechaNacimiento;
 
+  @OneToOne(cascade = { CascadeType.ALL })
+  @JoinColumn(name = "ID_DIRECCION")
+  private Direction direction;
+
   // primero creamos un constructor vacio
   public Empleado() {
   }
 
-  public Empleado(Long codigo, String nombre, String apellido, LocalDate fechaNacimiento) {
+  public Empleado(final Long codigo, final String nombre, final String apellido, final LocalDate fechaNacimiento) {
     this.codigo = codigo;
     this.nombre = nombre;
     this.apellido = apellido;
@@ -60,7 +67,7 @@ public class Empleado implements Serializable {
     return codigo;
   }
 
-  public void setCodigo(Long codigo) {
+  public void setCodigo(final Long codigo) {
     this.codigo = codigo;
   }
 
@@ -68,7 +75,7 @@ public class Empleado implements Serializable {
     return nombre;
   }
 
-  public void setNombre(String nombre) {
+  public void setNombre(final String nombre) {
     this.nombre = nombre;
   }
 
@@ -76,7 +83,7 @@ public class Empleado implements Serializable {
     return apellido;
   }
 
-  public void setApellido(String apellido) {
+  public void setApellido(final String apellido) {
     this.apellido = apellido;
   }
 
@@ -84,18 +91,22 @@ public class Empleado implements Serializable {
     return fechaNacimiento;
   }
 
-  public void setFechaNacimiento(LocalDate fechaNacimiento) {
+  public void setFechaNacimiento(final LocalDate fechaNacimiento) {
     this.fechaNacimiento = fechaNacimiento;
   }
 
-  // esta funcion convierte el objeto en un string en lugar de ser del tipo objeto
+  public Direction getDirection() {
+    return direction;
+  }
+
+  public void setDirection(Direction direction) {
+    this.direction = direction;
+  }
+
   @Override
   public String toString() {
-    return "Empleado{" +
-        "codigo=" + codigo +
-        ", nombre='" + nombre + '\'' +
-        ", apellido='" + apellido + '\'' +
-        ", fechaNacimiento=" + fechaNacimiento +
-        '}';
+    return "Empleado [codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento="
+        + fechaNacimiento + "direccion= " + direction + "]";
   }
+
 }

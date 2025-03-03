@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.kamilo.hibernate.modelo.Empleado;
+import com.kamilo.hibernate.modelo.Direction;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -20,6 +21,7 @@ public class TestEmpleados {
 
     // Creamos un empleado
     Empleado empleado = new Empleado(1L, "Kamilo", "Garcia", LocalDate.of(1979, 6, 28));
+    empleado.setDirection(new Direction(1L, "calle 1", "Bogota", "Colombia"));
 
     // Iniciar transacción
     try {
@@ -47,6 +49,7 @@ public class TestEmpleados {
     System.out.println("En esta base de datos hay " + empleados.size() + " empleados");
 
     insertInitial();
+
     // obtenemos el empleado y volvemos manage el moviemento para poderlo modificar
     manager.getTransaction().begin();
     Empleado empleado = manager.find(Empleado.class, 1L);
